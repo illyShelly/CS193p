@@ -8,7 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var flipCount = 0
+    var flipCount = 0 {
+        didSet {        // property observer
+            flipCountLabel.text = "Flips: \(flipCount)"
+        }
+    }
     
     var isFaceUp = true // tracking flip state
     
@@ -16,12 +20,10 @@ class ViewController: UIViewController {
     
     @IBAction func pressButton(_ sender: UIButton) {
         flipCount += 1
-        flipCountLabel.text = "Flips: \(flipCount)"
         flipCard(withEmoji: "👻", on: sender)
     }
     @IBAction func touchSecondCard(_ sender: UIButton) {
         flipCount += 1
-        flipCountLabel.text = "Flips: \(flipCount)"
         flipCard(withEmoji: "🎃", on: sender)
     }
     
