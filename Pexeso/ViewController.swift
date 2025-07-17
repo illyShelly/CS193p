@@ -8,18 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var flipCount = 0
     
     var isFaceUp = true // tracking flip state
-
+    
+    @IBOutlet weak var flipCountLabel: UILabel!
+    
     @IBAction func pressButton(_ sender: UIButton) {
+        flipCount += 1
+        flipCountLabel.text = "Flips: \(flipCount)"
         flipCard(withEmoji: "👻", on: sender)
     }
     @IBAction func touchSecondCard(_ sender: UIButton) {
+        flipCount += 1
+        flipCountLabel.text = "Flips: \(flipCount)"
         flipCard(withEmoji: "🎃", on: sender)
     }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
-        //        👈 Keep the font big
         let attributes: [NSAttributedString.Key: Any] = [
                  .font: UIFont.systemFont(ofSize: 50)
              ] // 👈 Keep the font big
