@@ -13,18 +13,18 @@ class ViewController: UIViewController {
             flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
-    
-    var isFaceUp = true // tracking flip state
-    
+        
     @IBOutlet weak var flipCountLabel: UILabel!
+    
+    @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func pressButton(_ sender: UIButton) {
         flipCount += 1
-        flipCard(withEmoji: "👻", on: sender)
-    }
-    @IBAction func touchSecondCard(_ sender: UIButton) {
-        flipCount += 1
-        flipCard(withEmoji: "🎃", on: sender)
+        if let cardNumber = cardButtons.firstIndex(of: sender) {
+            print("cardNumber: \(cardNumber)")
+        } else {
+            print("chosen card not found in cardButtons")
+        }
     }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         var attributedEmoji = NSAttributedString(string: "", attributes: attributes)
         
         // Showing emoji, flip down
-        if isFaceUp { // button.currentTitle == emoji
+        if button.currentTitle == emoji {
             //          button.setTitle("", for: UIControl.State.normal)
             //          button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
             attributedEmoji = NSAttributedString(string: "", attributes: attributes)
@@ -52,7 +52,6 @@ class ViewController: UIViewController {
             
 //             print("Font after setting: \(button.titleLabel?.font.debugDescription ?? "nil")")
         }
-        isFaceUp.toggle()
     }
 
 }
