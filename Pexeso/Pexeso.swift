@@ -8,7 +8,7 @@
 import Foundation
 
 class Pexeso {
-    
+    //    Pexeso has a "free" init as all vars (here 1) are initialized
     var cards: [Card] = [] // cards = Array<Card>() or [Card]()
     
     func chooseCard(at index: Int) {

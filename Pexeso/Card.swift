@@ -7,10 +7,12 @@
 
 import Foundation
 
-//Model is UI independent - > so no emoji here
+// Model is UI independent - > so no emoji/jpeg... here
+// How the card behave / the game works - not displayed
 
 struct Card {
+
     var isFacedUP: Bool = false
     var isMatched: Bool = false
-    var id: Int
+    var identifier: Int // be able to uniquely compare
 }

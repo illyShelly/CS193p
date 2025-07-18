@@ -8,6 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var game: Pexeso = Pexeso()
+    
     var flipCount = 0 {
         didSet {        // property observer
             flipCountLabel.text = "Flips: \(flipCount)"
