@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var game: Pexeso = Pexeso()
-    
+    //var game: Pexeso = Pexeso()
+    //    we need to number of cards -> add property into Pexeso class
+
     var flipCount = 0 {
         didSet {        // property observer
             flipCountLabel.text = "Flips: \(flipCount)"

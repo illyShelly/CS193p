@@ -15,4 +15,9 @@ struct Card {
     var isFacedUP: Bool = false
     var isMatched: Bool = false
     var identifier: Int // be able to uniquely compare
+    
+//    To make initializer shorter in VC than Card(isFacedUP: <#T##Bool#>, identifier: <#T##Int#>) -> we initilize the identifier like so:
+    init(identifier: Int) {
+        self.identifier = identifier
+    }
 }
