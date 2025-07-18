@@ -8,7 +8,7 @@
 import Foundation
 
 class Pexeso {
-    //    Pexeso has a "free" init as all vars (here 1) are initialized
+    
     var cards: [Card] = [] // cards = Array<Card>() or [Card]()
     
     func chooseCard(at index: Int) {
@@ -16,12 +16,17 @@ class Pexeso {
     }
     
     init(numberOfCards: Int) {
-        for identifier in 1...numberOfCards {
-            let card = Card(identifier: identifier)
-            
-            let matchingCard = card // assignment operator makes copy of the card as it's Struct
-            // making pairs of cards as it's still another copy of card
+        for _ in 1...numberOfCards {
+            let card = Card()  // assignment operator makes a copy of the card as it's Struct
+            let matchingCard = card // making pairs of cards as it's still another copy of card
+
             cards += [card, matchingCard] // [card, card], or use append
         }
+        // TODO: Shuffle the cards
+        cards.shuffle()
     }
+    
+    
 }
+
+//    Pexeso has a "free" init as all vars (here 1) are initialized

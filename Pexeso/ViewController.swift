@@ -9,9 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //var game: Pexeso = Pexeso()
-    //    we need to number of cards -> add property into Pexeso class
-
+    lazy var game: Pexeso = Pexeso(numberOfCards: cardButtons.count / 2)
+    //    we need the number of cards -> add property into Pexeso class
+    
     var flipCount = 0 {
         didSet {        // property observer
             flipCountLabel.text = "Flips: \(flipCount)"
@@ -59,3 +59,6 @@ class ViewController: UIViewController {
 //          button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
 
 //          print("Font after setting: \(button.titleLabel?.font.debugDescription ?? "nil")")
+
+// lazy -> it doesn't initialize until someone wants to use it (and is used once it is fully initialize :)
+// with lazy var cannot use property observer didSet
