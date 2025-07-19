@@ -12,7 +12,7 @@ import Foundation
 
 struct Card {
 
-    var isFacedUP: Bool = false
+    var isFacedUp: Bool = false
     var isMatched: Bool = false
     var identifier: Int // be able to uniquely compare
     
@@ -21,7 +21,6 @@ struct Card {
     static func getUniqueIdentifier() -> Int {
         Card.identifierFactory += 1
         return Card.identifierFactory
-        // static relate to the type, here Card, can be without Card.
     }
     
     //    To make initializer shorter in VC than Card(isFacedUP: False, identifier: 3) -> we initilize the identifier like so:
@@ -31,3 +30,5 @@ struct Card {
     
     
 }
+
+// static relate to the type, here Card, not to any individual instance of the struct. It can be without Card.identifierFactory, just identifierFactory += 1 etc.
