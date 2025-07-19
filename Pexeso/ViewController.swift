@@ -57,18 +57,14 @@ class ViewController: UIViewController {
     func emoji(for card: Card) -> String {
         // optional - firstly empty, then can be unwrapped
         // adding emoji when someone touch the screen at random
-        if emojiDictionary[card.identifier] == nil {
+        // Once emojiChoices.count == 0, the range becomes 0..<0, which is empty, and Swift will crash at runtime
+        
+        if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty { // no need to embeded another "if statements"
             let randomIndex = Int.random(in: 0..<emojiChoices.count)
-                // add key-value pair into dictionary and remove it from the array as well
+            // add key-value pair into dictionary and remove it from the array as well
             emojiDictionary[card.identifier] = emojiChoices.remove(at: randomIndex)
         }
-        
-        if emojiDictionary[card.identifier] != nil {
-            return emojiDictionary[card.identifier]!
-        } else {
-            return "?"
-        }
-        // return emoji[card.identifier] ?? "?"
+        return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
     }
 }
 
