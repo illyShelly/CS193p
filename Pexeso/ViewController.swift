@@ -39,14 +39,17 @@ class ViewController: UIViewController {
         for index in cardButtons.indices { // 0..<cardButtons.count
             let button = cardButtons[index]
             let card = game.cards[index]
+            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 40)]
             
             // clicked button matches the card (that which is UP)
             if card.isFacedUp { // white face, not about btn title anymore
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                let attributedString = NSAttributedString(string: emoji(for: card), attributes: attributes)
+                button.setAttributedTitle(attributedString, for: .normal)
                 button.backgroundColor = .white
             } else { // orange background
-                button.setTitle("", for: UIControl.State.normal)
                 // when the card is "matched" I still want to still when clicking on the second card as it's turned down
+                let attributedString = NSAttributedString(string: "", attributes: attributes)
+                button.setAttributedTitle(attributedString, for: .normal)
                 button.backgroundColor = card.isMatched ? UIColor.systemOrange.withAlphaComponent(0.3) : UIColor.systemOrange
             }
         }

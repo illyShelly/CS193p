@@ -10,13 +10,34 @@ import Foundation
 class Pexeso {
     
     var cards: [Card] = [] // cards = Array<Card>() or [Card]()
-    
+    var indexOfOneAndOnlyFaceUpCard: Int?
+
     func chooseCard(at index: Int) {
-        //        flip the card over
-        if cards[index].isFacedUp {
-            cards[index].isFacedUp = false
-        } else {
-            cards[index].isFacedUp = true
+        if !cards[index].isMatched {
+            // Initial stage indexOfOneAndOnlyFaceUpCard is nil,
+            // After 1st card is clicked the value is stored into OfOneAndOnlyFaceUpCard, after 2nd is assigned into matchIndex
+            
+            if let matchIndex = indexOfOneAndOnlyFaceUpCard, !cards[index].isFacedUp, matchIndex != index { // There is one faced-up card, and it's not the same tapped
+                
+                if cards[matchIndex].identifier == cards[index].identifier { // Match is found
+                    cards[matchIndex].isMatched = true // 1st card
+                    cards[index].isMatched = true      // 2nd card
+                }
+                
+                // 2nd card doesn't match with 1st so assign nil to indexOfOneAndOnlyFaceUpCard
+                cards[index].isFacedUp = true
+                indexOfOneAndOnlyFaceUpCard = nil
+
+            // Either no cards were touched initially or two cards already are faced up
+            // After 1st click jumps here -> 1 card is up
+            } else {
+                // Turned down both cards facing up
+                for flipDownIndex in cards.indices {
+                    cards[flipDownIndex].isFacedUp = false
+                }
+                cards[index].isFacedUp = true
+                indexOfOneAndOnlyFaceUpCard = index
+            }
         }
     }
     
