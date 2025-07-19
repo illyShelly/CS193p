@@ -15,10 +15,8 @@ class Pexeso {
         //        flip the card over
         if cards[index].isFacedUp {
             cards[index].isFacedUp = false
-           print(" down")
         } else {
             cards[index].isFacedUp = true
-            print("facing up")
         }
     }
     
@@ -26,7 +24,6 @@ class Pexeso {
         for _ in 1...numberOfCards {  //
             let card = Card()  // assignment operator makes a copy of the card as it's Struct
             let matchingCard = card // making pairs of cards as it's still another copy of card *
-
             cards += [card, matchingCard] // [card, card], or use append
         }
         

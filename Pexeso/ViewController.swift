@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game: Pexeso = Pexeso(numberOfCards: (cardButtons.count + 1))
+    lazy var game: Pexeso = Pexeso(numberOfCards: (cardButtons.count + 1) / 2)
     //* e.x.: 5 buttons -> (5+1)/2 = 3 -> double them 6 (1 card more for odd)
     //    we need the number of cards -> add property into Pexeso class
     
@@ -52,9 +52,23 @@ class ViewController: UIViewController {
         }
     }
     var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
+    var emojiDictionary: [Int:String] = [:]   // [Int:String]()
     
-    func emoji(for: Card) -> String {
-        return "?"
+    func emoji(for card: Card) -> String {
+        // optional - firstly empty, then can be unwrapped
+        // adding emoji when someone touch the screen at random
+        if emojiDictionary[card.identifier] == nil {
+            let randomIndex = Int.random(in: 0..<emojiChoices.count)
+                // add key-value pair into dictionary and remove it from the array as well
+            emojiDictionary[card.identifier] = emojiChoices.remove(at: randomIndex)
+        }
+        
+        if emojiDictionary[card.identifier] != nil {
+            return emojiDictionary[card.identifier]!
+        } else {
+            return "?"
+        }
+        // return emoji[card.identifier] ?? "?"
     }
 }
 
