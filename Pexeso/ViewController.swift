@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             if card.isFacedUp { // white face, not about btn title anymore
                 let attributedString = NSAttributedString(string: emoji(for: card), attributes: attributes)
                 button.setAttributedTitle(attributedString, for: .normal)
-                button.backgroundColor = .white
+                button.backgroundColor = .systemGray6
             } else { // orange background
                 // when the card is "matched" I still want to still when clicking on the second card as it's turned down
                 let attributedString = NSAttributedString(string: "", attributes: attributes)
