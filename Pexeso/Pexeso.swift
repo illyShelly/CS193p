@@ -9,9 +9,10 @@ import Foundation
 
 class Pexeso {
     
-    var cards: [Card] = [] // cards = Array<Card>() or [Card]()
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    private(set) var cards: [Card] = [] // cards = Array<Card>() or [Card]()
+    private var indexOfOneAndOnlyFaceUpCard: Int?
 
+//    is used by outside world incl. initializer to create a game -> public
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             // Initial stage indexOfOneAndOnlyFaceUpCard is nil,

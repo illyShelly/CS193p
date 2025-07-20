@@ -9,25 +9,29 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game: Pexeso = Pexeso(numberOfCards: (cardButtons.count + 1) / 2)
+    private lazy var game: Pexeso = Pexeso(numberOfCards: (numberOfPairsOfCards))
     //* e.x.: 5 buttons -> (5+1)/2 = 3 -> double them 6 (1 card more for odd)
     //    we need the number of cards -> add property into Pexeso class
     
-    var flipCount = 0 {
+    var numberOfPairsOfCards: Int {
+        return (cardButtons.count + 1) / 2
+    }
+                                           
+    private(set) var flipCount = 0 {
         didSet {        // property observer
             flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
     
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet private weak var flipCountLabel: UILabel!
     
-    @IBAction func resetButton(_ sender: UIButton) {
+    @IBAction private func resetButton(_ sender: UIButton) {
         game.resetCards()
         updateViewFromModel()
         flipCount = 0
     }
     
-    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet private var cardButtons: [UIButton]!
         
     @IBAction func pressButton(_ sender: UIButton) {
         flipCount += 1
@@ -41,7 +45,7 @@ class ViewController: UIViewController {
     
     //    Go through all Card buttons and set it up propertly
     //    & check each card instance in the cards
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         for index in cardButtons.indices { // 0..<cardButtons.count
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -60,10 +64,10 @@ class ViewController: UIViewController {
             }
         }
     }
-    var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
-    var emojiDictionary: [Int:String] = [:]   // [Int:String]()
+    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
+    private var emojiDictionary: [Int:String] = [:]   // [Int:String]()
     
-    func emoji(for card: Card) -> String {
+    private func emoji(for card: Card) -> String {
         // optional - firstly empty, then can be unwrapped
         // adding emoji when someone touch the screen at random
         // Once emojiChoices.count == 0, the range becomes 0..<0, which is empty, and Swift will crash at runtime

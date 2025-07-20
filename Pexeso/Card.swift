@@ -16,9 +16,9 @@ struct Card {
     var isMatched: Bool = false
     var identifier: Int // be able to uniquely compare
     
-    static var identifierFactory = 0
+    private static var identifierFactory = 0
     
-    static func getUniqueIdentifier() -> Int {
+    private static func getUniqueIdentifier() -> Int {
         Card.identifierFactory += 1
         return Card.identifierFactory
     }
