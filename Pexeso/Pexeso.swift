@@ -41,6 +41,19 @@ class Pexeso {
         }
     }
     
+    func resetCards() {
+        for index in cards.indices {
+//            Reset works if all are matched 
+            if cards[index].isMatched {
+                cards[index].isFacedUp = false
+                cards[index].isMatched = false
+            } else {
+                return
+            }
+            
+        }
+    }
+    
     init(numberOfCards: Int) {
         for _ in 1...numberOfCards {  //
             let card = Card()  // assignment operator makes a copy of the card as it's Struct

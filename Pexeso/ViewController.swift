@@ -21,6 +21,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
+    @IBAction func resetButton(_ sender: UIButton) {
+        game.resetCards()
+        updateViewFromModel()
+        flipCount = 0
+    }
+    
     @IBOutlet var cardButtons: [UIButton]!
         
     @IBAction func pressButton(_ sender: UIButton) {
