@@ -73,11 +73,36 @@ class ViewController: UIViewController {
         // Once emojiChoices.count == 0, the range becomes 0..<0, which is empty, and Swift will crash at runtime
         
         if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty { // no need to embeded another "if statements"
-            let randomIndex = Int.random(in: 0..<emojiChoices.count)
             // add key-value pair into dictionary and remove it from the array as well
-            emojiDictionary[card.identifier] = emojiChoices.remove(at: randomIndex)
+            emojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.randomInt)
         }
         return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
+    }
+}
+
+//Native Swift version
+extension Int {
+    var randomInt: Int {
+        if self > 0 {
+            return Int.random(in: 0..<self)
+        } else if self < 0 {
+            return -Int.random(in: 0..<abs(self))
+        } else {
+            return 0
+        }
+    }
+}
+
+// C-based version
+extension Int {
+    var arc4random: Int {
+        if self > 0 {
+            return Int(arc4random_uniform(UInt32(self)))
+        } else if self < 0 {
+            return -Int(arc4random_uniform(UInt32(abs(self))))
+        } else {
+            return 0
+        }
     }
 }
 
@@ -93,3 +118,5 @@ class ViewController: UIViewController {
 // * to ensure you have enough pairs for the number of cards, even when the total number of buttons (cards) is odd.
 // (cardButtons.count + 1) / 2) -> 5 / 2 = 2  → only 2 pairs = 4 cards (but you have 5 buttons!)
 // cardButtons.indices -> is countable range of Int
+
+// let randomIndex = Int.random(in: 0..<emojiChoices.count) - removed using extension
