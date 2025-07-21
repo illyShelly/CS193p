@@ -10,7 +10,27 @@ import Foundation
 class Pexeso {
     
     private(set) var cards: [Card] = [] // cards = Array<Card>() or [Card]()
-    private var indexOfOneAndOnlyFaceUpCard: Int?
+    private var indexOfOneAndOnlyFaceUpCard: Int? {
+        get {
+            var foundIndex: Int? // starts with nil
+            for index in cards.indices {
+                if cards[index].isFacedUp {
+                    if foundIndex == nil { // my only 1 card turned over
+                        foundIndex = index
+                    } else { // 2nd faced up card (not just one)
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        } set(currentNewIndex) { // can be without any value, auto is newValue
+            // Turn all cards faced down except he card at index with newValue there assign into indexOfOneAndOnlyFaceUpCard
+            // let isFaceUp to "true" only if this card's "index matches" the "new value"
+            for index in cards.indices {
+                cards[index].isFacedUp = index == currentNewIndex
+            }
+        }
+    }
 
     //    is used by outside world incl. initializer to create a game -> public
     // assert - cannot have for instance have negative or huge number of index -> if someone try to change it
@@ -29,16 +49,12 @@ class Pexeso {
                 
                 // 2nd card doesn't match with 1st so assign nil to indexOfOneAndOnlyFaceUpCard
                 cards[index].isFacedUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
+                // Set "nil" into indexOfOneAndOnlyFaceUpCard is handeled by computed property now
 
-            // Either no cards were touched initially or two cards already are faced up
+            // Either "no cards" were touched initially or "two cards" already are faced up
             // After 1st click jumps here -> 1 card is up
             } else {
-                // Turned down both cards facing up
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFacedUp = false
-                }
-                cards[index].isFacedUp = true
+                // Turned down both cards facing up - handed by computed property above
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
