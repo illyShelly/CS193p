@@ -12,8 +12,10 @@ class Pexeso {
     private(set) var cards: [Card] = [] // cards = Array<Card>() or [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int?
 
-//    is used by outside world incl. initializer to create a game -> public
+    //    is used by outside world incl. initializer to create a game -> public
+    // assert - cannot have for instance have negative or huge number of index -> if someone try to change it
     func chooseCard(at index: Int) {
+        assert(cards.indices.contains(index), "Pexeso.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatched {
             // Initial stage indexOfOneAndOnlyFaceUpCard is nil,
             // After 1st card is clicked the value is stored into OfOneAndOnlyFaceUpCard, after 2nd is assigned into matchIndex
@@ -56,6 +58,7 @@ class Pexeso {
     }
     
     init(numberOfCards: Int) {
+        assert(numberOfCards > 0, "Pexeso.init(\(numberOfCards) you must have at least one pair of cards")
         for _ in 1...numberOfCards {  //
             let card = Card()  // assignment operator makes a copy of the card as it's Struct
             let matchingCard = card // making pairs of cards as it's still another copy of card *
