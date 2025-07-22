@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     // those NS attributes take effect after because of the initialization = 0 if it's in didSet.
-    //    Separate fce, as well the IBOutlet (has initial setup)
+    //    Sepsarate fce, as well the IBOutlet (has initial setup)
     private func updateFlipCounLabel() {
         let attributes: [NSAttributedString.Key: Any] = [
             .strokeWidth: 4.0,

@@ -12,17 +12,8 @@ class Pexeso {
     private(set) var cards: [Card] = [] // cards = Array<Card>() or [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            var foundIndex: Int? // starts with nil
-            for index in cards.indices {
-                if cards[index].isFacedUp {
-                    if foundIndex == nil { // my only 1 card turned over
-                        foundIndex = index
-                    } else { // 2nd faced up card (not just one)
-                        return nil
-                    }
-                }
-            }
-            return foundIndex
+            let faceUpCardIndices = cards.indices.filter { cards[$0].isFacedUp } // 1 param - $0
+            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
         } set(currentNewIndex) { // can be without any value, auto is newValue
             // Turn all cards faced down except he card at index with newValue there assign into indexOfOneAndOnlyFaceUpCard
             // let isFaceUp to "true" only if this card's "index matches" the "new value"
