@@ -79,20 +79,33 @@ class ViewController: UIViewController {
             }
         }
     }
-    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
+//    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
+    private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
+
     private var emojiDictionary: [Int:String] = [:]   // [Int:String]()
     
+    //    Using string instead of array of emojis
     private func emoji(for card: Card) -> String {
-        // optional - firstly empty, then can be unwrapped
-        // adding emoji when someone touch the screen at random
-        // Once emojiChoices.count == 0, the range becomes 0..<0, which is empty, and Swift will crash at runtime
-        
-        if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty { // no need to embeded another "if statements"
-            // add key-value pair into dictionary and remove it from the array as well
-            emojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.randomInt)
+        if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty {
+            //            Cannot use Integer index as it doesn't work in String'
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.randomInt)
+            //            Add key-value pair into dictionary and remove it from the array as well
+            emojiDictionary[card.identifier] = String(emojiChoices.remove(at: randomStringIndex))
         }
         return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
     }
+    
+//    private func emoji(for card: Card) -> String {
+//        // optional - firstly empty, then can be unwrapped
+//        // adding emoji when someone touch the screen at random
+//        // Once emojiChoices.count == 0, the range becomes 0..<0, which is empty, and Swift will crash at runtime
+//        
+//        if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty { // no need to embeded another "if statements"
+//            // add key-value pair into dictionary and remove it from the array as well
+//            emojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.randomInt)
+//        }
+//        return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
+//    }
 }
 
 //Native Swift version
