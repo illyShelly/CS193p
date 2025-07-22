@@ -82,17 +82,18 @@ class ViewController: UIViewController {
 //    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
     private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
 
-    private var emojiDictionary: [Int:String] = [:]   // [Int:String]()
+//    Want to compare "directly Card to Card" not their identifier
+    private var emojiDictionary: [Card:String] = [:]   // [Int:String]()
     
     //    Using string instead of array of emojis
     private func emoji(for card: Card) -> String {
-        if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty {
+        if emojiDictionary[card] == nil, !emojiChoices.isEmpty {
             //            Cannot use Integer index as it doesn't work in String'
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.randomInt)
             //            Add key-value pair into dictionary and remove it from the array as well
-            emojiDictionary[card.identifier] = String(emojiChoices.remove(at: randomStringIndex))
+            emojiDictionary[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
-        return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
+        return emojiDictionary[card] ?? "?" // if dictionary is not empty return, if so then "?"
     }
     
 //    private func emoji(for card: Card) -> String {

@@ -10,11 +10,22 @@ import Foundation
 // Model is UI independent - > so no emoji/jpeg... here
 // How the card behave / the game works - not displayed
 
-struct Card {
+struct Card: Hashable {
 
+//    Depricated hashValue for newer Swift
+    //    var hashValue: Int { return identifier }
+    
+    static func == (leftHandSite: Card, righHandSite: Card) -> Bool {
+        return leftHandSite.identifier == righHandSite.identifier
+    }
+    
+    func hash(into hasher: inout Hasher) {
+           hasher.combine(identifier)
+    }
+    
     var isFacedUp: Bool = false
     var isMatched: Bool = false
-    var identifier: Int // be able to uniquely compare
+    private var identifier: Int // be able to uniquely compare
     
     private static var identifierFactory = 0
     

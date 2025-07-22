@@ -36,7 +36,8 @@ class Pexeso {
             
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, !cards[index].isFacedUp, matchIndex != index { // There is one faced-up card, and it's not the same tapped
                 
-                if cards[matchIndex].identifier == cards[index].identifier { // Match is found
+//                Using comparision Card to Card without identifier and make it private
+                if cards[matchIndex] == cards[index] { // Match is found.
                     cards[matchIndex].isMatched = true // 1st card
                     cards[index].isMatched = true      // 2nd card
                 }
@@ -80,6 +81,7 @@ class Pexeso {
     }
 }
 
+// Protocol
 extension Collection {
     var oneAndOnlyElement: Element? {
         return self.count == 1 ? self.first : nil
