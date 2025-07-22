@@ -12,8 +12,11 @@ class Pexeso {
     private(set) var cards: [Card] = [] // cards = Array<Card>() or [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            let faceUpCardIndices = cards.indices.filter { cards[$0].isFacedUp } // 1 param - $0
-            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+            //            with extension
+            return cards.indices.filter { cards[$0].isFacedUp }.oneAndOnlyElement
+            //            let faceUpCardIndices = cards.indices.filter { cards[$0].isFacedUp } // 1 param - $0
+            //            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+            
         } set(currentNewIndex) { // can be without any value, auto is newValue
             // Turn all cards faced down except he card at index with newValue there assign into indexOfOneAndOnlyFaceUpCard
             // let isFaceUp to "true" only if this card's "index matches" the "new value"
@@ -74,6 +77,12 @@ class Pexeso {
         
         // TODO: Shuffle the cards
         cards.shuffle()
+    }
+}
+
+extension Collection {
+    var oneAndOnlyElement: Element? {
+        return self.count == 1 ? self.first : nil
     }
 }
 
