@@ -19,11 +19,26 @@ class ViewController: UIViewController {
                                            
     private(set) var flipCount = 0 {
         didSet {        // property observer
-            flipCountLabel.text = "Flips: \(flipCount)"
+            updateFlipCounLabel()
         }
     }
     
-    @IBOutlet private weak var flipCountLabel: UILabel!
+    // those NS attributes take effect after because of the initialization = 0 if it's in didSet.
+    //    Separate fce, as well the IBOutlet (has initial setup)
+    private func updateFlipCounLabel() {
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth: 4.0,
+            .strokeColor: UIColor.orange
+        ]
+        let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+        flipCountLabel.attributedText = attributedString
+    }
+    
+    @IBOutlet private weak var flipCountLabel: UILabel! {
+        didSet { // set it for initial state of the UILabel
+            updateFlipCounLabel()
+        }
+    }
     
     @IBAction private func resetButton(_ sender: UIButton) {
         game.resetCards()
