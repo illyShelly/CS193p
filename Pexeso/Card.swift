@@ -15,7 +15,7 @@ struct Card: Hashable {
 //    Depricated hashValue for newer Swift
     //    var hashValue: Int { return identifier }
     
-    static func == (leftHandSite: Card, righHandSite: Card) -> Bool {
+    static func == (leftHandSite: Card, righHandSite: Card) -> Bool { // Equatable protocol for using ==
         return leftHandSite.identifier == righHandSite.identifier
     }
     
