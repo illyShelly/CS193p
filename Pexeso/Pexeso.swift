@@ -57,15 +57,16 @@ class Pexeso {
     
     func resetCards() {
         for index in cards.indices {
-//            Reset works if all are matched 
+            //            Reset works if all are matched 
             if cards[index].isMatched {
                 cards[index].isFacedUp = false
                 cards[index].isMatched = false
-            } else {
+            } else { // do not reset until all are turned over
                 return
             }
-            
         }
+        //        shuffle card for next play - otherwise they stay on the same place
+        cards.shuffle()
     }
     
     init(numberOfCards: Int) {
