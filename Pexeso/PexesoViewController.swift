@@ -61,25 +61,28 @@ class PexesoViewController: UIViewController {
     //    Go through all Card buttons and set it up propertly
     //    & check each card instance in the cards
     private func updateViewFromModel() {
-        for index in cardButtons.indices { // 0..<cardButtons.count
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 40)]
-            
-            // clicked button matches the card (that which is UP)
-            if card.isFacedUp { // white face, not about btn title anymore
-                let attributedString = NSAttributedString(string: emoji(for: card), attributes: attributes)
-                button.setAttributedTitle(attributedString, for: .normal)
-                button.backgroundColor = .systemGray6
-            } else { // orange background
-                // when the card is "matched" I still want to still when clicking on the second card as it's turned down
-                let attributedString = NSAttributedString(string: "", attributes: attributes)
-                button.setAttributedTitle(attributedString, for: .normal)
-                button.backgroundColor = card.isMatched ? UIColor.systemOrange.withAlphaComponent(0.3) : UIColor.systemOrange
+        if cardButtons != nil {
+            for index in cardButtons.indices { // 0..<cardButtons.count
+                let button = cardButtons[index]
+                let card = game.cards[index]
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 40)]
+                
+                // clicked button matches the card (that which is UP)
+                if card.isFacedUp { // white face, not about btn title anymore
+                    let attributedString = NSAttributedString(string: emoji(for: card), attributes: attributes)
+                    button.setAttributedTitle(attributedString, for: .normal)
+                    button.backgroundColor = .systemGray6
+                } else { // orange background
+                    // when the card is "matched" I still want to still when clicking on the second card as it's turned down
+                    let attributedString = NSAttributedString(string: "", attributes: attributes)
+                    button.setAttributedTitle(attributedString, for: .normal)
+                    button.backgroundColor = card.isMatched ? UIColor.systemOrange.withAlphaComponent(0.3) : UIColor.systemOrange
+                }
             }
         }
     }
     
+//    Theme using the 'segue', but emojiChoices gets initialized before theme is set here :( and emojiChoices updated with didSet
     var theme: String? {
         didSet {
             emojiChoices = theme ?? "" // starts as nil
