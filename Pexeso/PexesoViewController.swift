@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PexesoViewController.swift
 //  Pexeso
 //
 //  Created by Ilona Sellenberkova on 17/07/2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PexesoViewController: UIViewController {
     
     private lazy var game: Pexeso = Pexeso(numberOfCards: (numberOfPairsOfCards))
     //* e.x.: 5 buttons -> (5+1)/2 = 3 -> double them 6 (1 card more for odd)
@@ -79,6 +79,15 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? ""
+            emojiDictionary = [:]
+            updateViewFromModel()
+        }
+    }
+    
 //    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
     private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
 
