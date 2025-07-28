@@ -82,8 +82,8 @@ class PexesoViewController: UIViewController {
     
     var theme: String? {
         didSet {
-            emojiChoices = theme ?? ""
-            emojiDictionary = [:]
+            emojiChoices = theme ?? "" // starts as nil
+            emojiDictionary = [:] // reset emojis could be from different theme; Swift infer type of k,v - Card:String
             updateViewFromModel()
         }
     }
