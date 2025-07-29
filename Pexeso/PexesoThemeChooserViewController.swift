@@ -15,11 +15,14 @@ class PexesoThemeChooserViewController: UIViewController {
         "Faces": "🙂😉😍🤓😎😇🧐😟😢🥶😱"
     ]
     
-     // MARK: - Navigation
+    private enum Segue: String {
+        case chooseTheme = "Choose Theme"
+    }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          // check which segue we're doing - we have 1 here for choosing theme
-        if segue.identifier == "Choose Theme" {
+        if segue.identifier == Segue.chooseTheme.rawValue {
             // can we find pexeso MVC, and prepare it to telling him its 'theme'
             // is Any? type actually UIButton
             // (sender as? UIButton)? - can return nil -> needs optional chain it
@@ -31,7 +34,6 @@ class PexesoThemeChooserViewController: UIViewController {
             }
         }
     }
-
 }
 
 // segue creates always new MVC, destroy old one when going back in navigation
