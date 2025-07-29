@@ -29,9 +29,12 @@ class PexesoThemeChooserViewController: UIViewController {
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
                 // segue.destination - is UIViewController
                 if let pexesoVC = segue.destination as? PexesoViewController {
+                    print("prepareForSegue: setting theme = \(themeName)")
                     pexesoVC.theme = theme
                 } // cannot write like this: segue.destination.theme = theme, doesn't have theme UIViewC
             }
+        } else {
+            print("prepareForSegue failed: sender or theme not found")
         }
     }
 }

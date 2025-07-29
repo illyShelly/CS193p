@@ -49,6 +49,7 @@ class PexesoViewController: UIViewController {
     @IBOutlet private var cardButtons: [UIButton]!
         
     @IBAction func pressButton(_ sender: UIButton) {
+        print("pressButton triggered, cardButtons count: \(cardButtons?.count ?? -1)")
         flipCount += 1
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber) // say model to choose btn/card
@@ -58,10 +59,20 @@ class PexesoViewController: UIViewController {
         }
     }
     
+    // Theme using the 'segue', but emojiChoices gets initialized before theme is set here :( and emojiChoices updated with didSet
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? "" // starts as nil
+            print("Theme set: \(emojiChoices)")
+            emojiDictionary = [:] // reset emojis could be from different theme; Swift infer type of k,v - Card:String
+            updateViewFromModel()
+        }
+    }
+    
     //    Go through all Card buttons and set it up propertly
     //    & check each card instance in the cards
     private func updateViewFromModel() {
-        if cardButtons != nil {
+        guard cardButtons != nil else { return }
             for index in cardButtons.indices { // 0..<cardButtons.count
                 let button = cardButtons[index]
                 let card = game.cards[index]
@@ -81,16 +92,7 @@ class PexesoViewController: UIViewController {
             }
         }
     }
-    
-//    Theme using the 'segue', but emojiChoices gets initialized before theme is set here :( and emojiChoices updated with didSet
-    var theme: String? {
-        didSet {
-            emojiChoices = theme ?? "" // starts as nil
-            emojiDictionary = [:] // reset emojis could be from different theme; Swift infer type of k,v - Card:String
-            updateViewFromModel()
-        }
-    }
-    
+
 //    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
     private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
 
@@ -119,9 +121,9 @@ class PexesoViewController: UIViewController {
 //        }
 //        return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
 //    }
-}
+//}
 
-//Native Swift version
+// Native Swift version
 extension Int {
     var randomInt: Int {
         if self > 0 {
