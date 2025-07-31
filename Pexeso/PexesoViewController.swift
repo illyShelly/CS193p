@@ -18,14 +18,14 @@ class PexesoViewController: UIViewController {
     }
                                            
     private(set) var flipCount = 0 {
-        didSet {        // property observer
-            updateFlipCounLabel()
+        didSet {                        // property observer
+            updateFlipCountLabel()
         }
     }
     
-    // those NS attributes take effect after because of the initialization = 0 if it's in didSet.
-    //    Sepsarate fce, as well the IBOutlet (has initial setup)
-    private func updateFlipCounLabel() {
+        // those NS attributes take effect after because of the initialization = 0 if it's in didSet.
+        //    Sepsarate fce, as well the IBOutlet (has initial setup)
+    private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key: Any] = [
             .strokeWidth: 4.0,
             .strokeColor: UIColor.orange
@@ -36,21 +36,30 @@ class PexesoViewController: UIViewController {
     
     @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet { // set it for initial state of the UILabel
-            updateFlipCounLabel()
+            updateFlipCountLabel()
         }
     }
     
-    @IBAction private func resetButton(_ sender: UIButton) {
-        game.resetCards()
-        updateViewFromModel()
-        flipCount = 0
+    // Theme using the 'segue', but emojiChoices gets initialized before theme is set here :( and emojiChoices updated with didSet
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? "" // starts as nil
+            emojiDictionary = [:]
+            updateViewFromModel()
+        }
     }
     
+        @IBAction private func resetButton(_ sender: UIButton) {
+            game.resetCards()
+            updateViewFromModel()
+            flipCount = 0
+        }
+    
     @IBOutlet private var cardButtons: [UIButton]!
-        
-    @IBAction func pressButton(_ sender: UIButton) {
-        print("pressButton triggered, cardButtons count: \(cardButtons?.count ?? -1)")
+    
+    @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
+        
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber) // say model to choose btn/card
             updateViewFromModel()
@@ -59,69 +68,56 @@ class PexesoViewController: UIViewController {
         }
     }
     
-    // Theme using the 'segue', but emojiChoices gets initialized before theme is set here :( and emojiChoices updated with didSet
-    var theme: String? {
-        didSet {
-            emojiChoices = theme ?? "" // starts as nil
-            print("Theme set: \(emojiChoices)")
-            emojiDictionary = [:] // reset emojis could be from different theme; Swift infer type of k,v - Card:String
-            updateViewFromModel()
-        }
-    }
-    
     //    Go through all Card buttons and set it up propertly
     //    & check each card instance in the cards
     private func updateViewFromModel() {
-        guard cardButtons != nil else { return }
+//        guard cardButtons != nil else { return }
+        if cardButtons != nil { // starting game, back button to change theme and it breaks
             for index in cardButtons.indices { // 0..<cardButtons.count
                 let button = cardButtons[index]
                 let card = game.cards[index]
-                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 40)]
-                
+                            
                 // clicked button matches the card (that which is UP)
-                if card.isFacedUp { // white face, not about btn title anymore
-                    let attributedString = NSAttributedString(string: emoji(for: card), attributes: attributes)
-                    button.setAttributedTitle(attributedString, for: .normal)
-                    button.backgroundColor = .systemGray6
+                if card.isFacedUp {
+                    button.setTitle(emoji(for: card), for: .normal)
+                    button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
+
                 } else { // orange background
-                    // when the card is "matched" I still want to still when clicking on the second card as it's turned down
-                    let attributedString = NSAttributedString(string: "", attributes: attributes)
-                    button.setAttributedTitle(attributedString, for: .normal)
-                    button.backgroundColor = card.isMatched ? UIColor.systemOrange.withAlphaComponent(0.3) : UIColor.systemOrange
+                    // when the card is "matched" I still want to stay when clicking on the second card as it's turned down
+                    button.setTitle("", for: .normal)
+                    button.backgroundColor = card.isMatched ? UIColor.systemMint.withAlphaComponent(0.3) : UIColor.systemMint
                 }
             }
         }
     }
-
+}
 //    private var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
     private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
 
 //    Want to compare "directly Card to Card" not their identifier
     private var emojiDictionary: [Card:String] = [:]   // [Int:String]()
-    
+
     //    Using string instead of array of emojis
     private func emoji(for card: Card) -> String {
+        
         if emojiDictionary[card] == nil, !emojiChoices.isEmpty {
-            //            Cannot use Integer index as it doesn't work in String'
+                
+            // Cannot use Integer index as it doesn't work in String'
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.randomInt)
-            //            Add key-value pair into dictionary and remove it from the array as well
+                
+            // Add key-value pair into dictionary and remove it from the array as well
             emojiDictionary[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
         return emojiDictionary[card] ?? "?" // if dictionary is not empty return, if so then "?"
     }
-    
+
 //    private func emoji(for card: Card) -> String {
 //        // optional - firstly empty, then can be unwrapped
 //        // adding emoji when someone touch the screen at random
 //        // Once emojiChoices.count == 0, the range becomes 0..<0, which is empty, and Swift will crash at runtime
-//        
+//
 //        if emojiDictionary[card.identifier] == nil, !emojiChoices.isEmpty { // no need to embeded another "if statements"
-//            // add key-value pair into dictionary and remove it from the array as well
-//            emojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.randomInt)
-//        }
-//        return emojiDictionary[card.identifier] ?? "?" // if dictionary is not empty return, if so then "?"
-//    }
-//}
+// add key-value pair into dictionary and remove it from the array as well
 
 // Native Swift version
 extension Int {
@@ -150,6 +146,7 @@ extension Int {
 }
 
 // Using setAttributedTitle(...) bypasses UIKit's buggy font inheritance or layout pass, and gives total control over the font rendering regardless of what UIKit's internal layout engine does
+
 //          button.setTitle("", for: UIControl.State.normal)
 //          button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
 

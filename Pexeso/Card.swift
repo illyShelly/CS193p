@@ -13,7 +13,7 @@ import Foundation
 struct Card: Hashable {
 
 //    Depricated hashValue for newer Swift
-    //    var hashValue: Int { return identifier }
+//    var hashValue: Int { return identifier }
     
     static func == (leftHandSite: Card, righHandSite: Card) -> Bool { // Equatable protocol for using ==
         return leftHandSite.identifier == righHandSite.identifier
@@ -30,8 +30,8 @@ struct Card: Hashable {
     private static var identifierFactory = 0
     
     private static func getUniqueIdentifier() -> Int {
-        Card.identifierFactory += 1
-        return Card.identifierFactory
+        identifierFactory += 1
+        return identifierFactory
     }
     
     //    To make initializer shorter in VC than Card(isFacedUP: False, identifier: 3) -> we initilize the identifier like so:

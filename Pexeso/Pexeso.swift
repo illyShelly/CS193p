@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Pexeso {
+struct Pexeso {
     
     private(set) var cards: [Card] = [] // cards = Array<Card>() or [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int? {
@@ -17,8 +17,9 @@ class Pexeso {
             //            let faceUpCardIndices = cards.indices.filter { cards[$0].isFacedUp } // 1 param - $0
             //            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
             
-        } set(currentNewIndex) { // can be without any value, auto is newValue
-            // Turn all cards faced down except he card at index with newValue there assign into indexOfOneAndOnlyFaceUpCard
+        } set(currentNewIndex) {
+            // can be without any value, auto is newValue
+            // Turn all cards faced down except the card at index with newValue there assign into indexOfOneAndOnlyFaceUpCard
             // let isFaceUp to "true" only if this card's "index matches" the "new value"
             for index in cards.indices {
                 cards[index].isFacedUp = index == currentNewIndex
@@ -27,16 +28,16 @@ class Pexeso {
     }
 
     //    is used by outside world incl. initializer to create a game -> public
-    // assert - cannot have for instance have negative or huge number of index -> if someone try to change it
-    func chooseCard(at index: Int) {
+    // assert - cannot have for instance negative or huge number of index -> if someone try to change it
+    
+    mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Pexeso.chooseCard(at: \(index)): chosen index not in the cards")
+        
         if !cards[index].isMatched {
             // Initial stage indexOfOneAndOnlyFaceUpCard is nil,
             // After 1st card is clicked the value is stored into OfOneAndOnlyFaceUpCard, after 2nd is assigned into matchIndex
-            
+//            !cards[index].isFacedUp,
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, !cards[index].isFacedUp, matchIndex != index { // There is one faced-up card, and it's not the same tapped
-                
-//                Using comparision Card to Card without identifier and make it private
                 if cards[matchIndex] == cards[index] { // Match is found.
                     cards[matchIndex].isMatched = true // 1st card
                     cards[index].isMatched = true      // 2nd card
@@ -55,7 +56,7 @@ class Pexeso {
         }
     }
     
-    func resetCards() {
+    mutating func resetCards() {
         for index in cards.indices {
             //            Reset works if all are matched 
             if cards[index].isMatched {
@@ -65,7 +66,7 @@ class Pexeso {
                 return
             }
         }
-        //        shuffle card for next play - otherwise they stay on the same place
+        // shuffle card for next play - otherwise they stay on the same place
         cards.shuffle()
     }
     
@@ -92,3 +93,5 @@ extension Collection {
 //    Pexeso has a "free" init as all vars (here 1) are initialized
 //    from 0..<numberOfCArds to the end excluded, or from 1...numberOfCards (included)
 //   * no need to create copy of another card like this: Card(), assign the card creates new again
+//            let matchingCard = card // making pairs of cards as it's still another copy of card *
+//            cards += [card, matchingCard] // [card, card], or use append

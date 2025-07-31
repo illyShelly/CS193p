@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bIq-Ww-p4D">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YQB-0H-Ucp">
+    <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -14,41 +15,50 @@
             <objects>
                 <viewController id="gNz-wZ-cCY" customClass="PexesoThemeChooserViewController" customModule="Pexeso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K9B-Nc-DvY">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8t-a86">
-                                <rect key="frame" x="173" y="441" width="84" height="119"/>
+                                <rect key="frame" x="132.66666666666666" y="375" width="136.99999999999997" height="196"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9R-jr-v3Y">
-                                        <rect key="frame" x="5" y="0.0" width="74.333333333333329" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sports"/>
+                                        <rect key="frame" x="11.333333333333343" y="0.0" width="114" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Sports">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Choose Theme" id="Yab-r6-zG2"/>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="sgd-mo-2aD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-0P-Dvy">
-                                        <rect key="frame" x="0.0" y="42.333333333333314" width="84" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Animals"/>
+                                        <rect key="frame" x="18" y="68" width="101" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Faces">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Choose Theme" id="Fp4-mr-Ulo"/>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="cen-MJ-LII"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSZ-cN-0lh">
-                                        <rect key="frame" x="7.6666666666666572" y="84.666666666666629" width="68.666666666666671" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Faces"/>
+                                        <rect key="frame" x="0.0" y="136" width="137" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Animals">
+                                            <color key="titleColor" systemColor="systemMintColor"/>
+                                        </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Choose Theme" id="bLN-yC-jVw"/>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="lit-gB-ZZx"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kIo-aY-ipE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="89S-8t-a86" firstAttribute="centerX" secondItem="kIo-aY-ipE" secondAttribute="centerX" id="YKN-Hk-oHA"/>
                             <constraint firstItem="89S-8t-a86" firstAttribute="centerY" secondItem="kIo-aY-ipE" secondAttribute="centerY" id="hmg-Lw-Cvb"/>
@@ -58,211 +68,152 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w18-eq-39J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-117.20930232558139" y="-14.163090128755366"/>
+            <point key="canvasLocation" x="3" y="-9"/>
         </scene>
         <!--Pexeso View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PexesoViewController" customModule="Pexeso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vBV-sQ-gt5">
-                                <rect key="frame" x="16" y="119" width="398" height="705"/>
+                                <rect key="frame" x="16" y="122" width="370" height="644"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iEu-o2-lbo">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="170.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="155"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfO-DH-WZf">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="170.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqb-KB-Psl"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqb-KB-Psl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YL-bC-0L0">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="93.333333333333314" height="170.33333333333334"/>
+                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqC-KS-Mah"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqC-KS-Mah"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DZ-CZ-PT2">
-                                                <rect key="frame" x="203" y="0.0" width="93.666666666666686" height="170.33333333333334"/>
+                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d0T-l8-hbk"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d0T-l8-hbk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZV-zZ-AQ1">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="93.333333333333314" height="170.33333333333334"/>
+                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0l-0n-xF3"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0l-0n-xF3"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DZT-s7-fc7">
-                                        <rect key="frame" x="0.0" y="178.33333333333331" width="398" height="170.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="163" width="370" height="155"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDz-DV-wCk">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="170.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sMh-vv-FfK"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sMh-vv-FfK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WG-Ks-KWR">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="93.333333333333314" height="170.33333333333334"/>
+                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xfu-Nr-2Hs"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xfu-Nr-2Hs"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9v-S3-4Sb">
-                                                <rect key="frame" x="203" y="0.0" width="93.666666666666686" height="170.33333333333334"/>
+                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VeI-B0-G4i"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VeI-B0-G4i"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-hI-ILf">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="93.333333333333314" height="170.33333333333334"/>
+                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kw5-rt-Tye"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kw5-rt-Tye"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-kj-GuB">
-                                        <rect key="frame" x="0.0" y="356.66666666666669" width="398" height="170.00000000000006"/>
+                                        <rect key="frame" x="0.0" y="326" width="370" height="155"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7X-c2-QCh">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="170"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="doi-jB-rnP"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="doi-jB-rnP"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwh-D7-mQl">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="93.333333333333314" height="170"/>
+                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkh-ce-qTd"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkh-ce-qTd"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiD-t4-8mv">
-                                                <rect key="frame" x="203" y="0.0" width="93.666666666666686" height="170"/>
+                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O5a-5W-jw1"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O5a-5W-jw1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-Fp-xNR">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="93.333333333333314" height="170"/>
+                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="155"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBv-wz-hYY"/>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBv-wz-hYY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wpM-Dq-bZR">
-                                        <rect key="frame" x="0.0" y="534.66666666666663" width="398" height="170.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="489" width="370" height="155"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuC-nR-sM6">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="170.33333333333334"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h17-dI-kVF">
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="155"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Reset"/>
                                                 <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gSQ-Jn-J2D"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp5-j5-esI">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="93.333333333333314" height="170.33333333333334"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jmo-uh-lRj"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uht-zc-VBm">
-                                                <rect key="frame" x="203" y="0.0" width="93.666666666666686" height="170.33333333333334"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fce-6T-P9z"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-fp-zOh">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="93.333333333333314" height="170.33333333333334"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" cornerRadius="18"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0h-dW-bBE"/>
+                                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="imn-rh-FIO"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -270,35 +221,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt4-2M-nPV">
-                                <rect key="frame" x="154" y="832" width="122.33333333333331" height="48"/>
+                                <rect key="frame" x="140" y="774" width="122.33333333333331" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzh-PR-vzH">
-                                <rect key="frame" x="16.000000000000007" y="851" width="118.66666666666669" height="45"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
-                                <connections>
-                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hab-ix-VOT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bt4-2M-nPV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="62d-ef-eVo"/>
                             <constraint firstItem="vBV-sQ-gt5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="VBT-Db-d67"/>
-                            <constraint firstItem="bt4-2M-nPV" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Xzh-PR-vzH" secondAttribute="trailing" constant="19.329999999999998" id="a0e-sZ-aQc"/>
                             <constraint firstItem="vBV-sQ-gt5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="a2e-Y6-vrc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xzh-PR-vzH" secondAttribute="bottom" constant="2" id="coo-Pe-nMb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xzh-PR-vzH" secondAttribute="trailing" constant="100" id="hBJ-JM-bBd"/>
                             <constraint firstItem="bt4-2M-nPV" firstAttribute="top" secondItem="vBV-sQ-gt5" secondAttribute="bottom" constant="8" symbolic="YES" id="hS7-Kz-ocb"/>
-                            <constraint firstItem="Xzh-PR-vzH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kYp-g9-52u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vBV-sQ-gt5" secondAttribute="trailing" constant="16" id="rdn-VE-6Jz"/>
-                            <constraint firstItem="Xzh-PR-vzH" firstAttribute="top" secondItem="vBV-sQ-gt5" secondAttribute="bottom" constant="27" id="siF-ah-WMa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bt4-2M-nPV" secondAttribute="bottom" constant="18" id="t9C-ft-PaL"/>
                         </constraints>
                     </view>
@@ -317,44 +253,53 @@
                         <outletCollection property="cardButtons" destination="Kwh-D7-mQl" collectionClass="NSMutableArray" id="E5k-H4-nvX"/>
                         <outletCollection property="cardButtons" destination="5Aq-Fp-xNR" collectionClass="NSMutableArray" id="d5C-uC-Xyr"/>
                         <outletCollection property="cardButtons" destination="Q7X-c2-QCh" collectionClass="NSMutableArray" id="eZ7-aX-psQ"/>
-                        <outletCollection property="cardButtons" destination="lp8-fp-zOh" collectionClass="NSMutableArray" id="PxW-xJ-uoM"/>
-                        <outletCollection property="cardButtons" destination="jp5-j5-esI" collectionClass="NSMutableArray" id="T9O-08-z9p"/>
-                        <outletCollection property="cardButtons" destination="tuC-nR-sM6" collectionClass="NSMutableArray" id="KEE-Hm-sTM"/>
-                        <outletCollection property="cardButtons" destination="Uht-zc-VBm" collectionClass="NSMutableArray" id="u7f-ON-Iet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669.76744186046506" y="-11.587982832618026"/>
+            <point key="canvasLocation" x="-867" y="915"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ERi-LI-gVb">
+        <scene sceneID="Eea-AH-07D">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bIq-Ww-p4D" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Esk-cX-mnB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uQ0-mi-ru7">
-                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YVU-cT-OKJ">
+                        <rect key="frame" x="0.0" y="62" width="402" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gNz-wZ-cCY" kind="relationship" relationship="rootViewController" id="D5E-yC-Mxh"/>
+                        <segue destination="gNz-wZ-cCY" kind="relationship" relationship="rootViewController" id="YJg-fk-Az7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GSW-2N-cWo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O94-oU-IsR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1013.0232558139535" y="-14.163090128755366"/>
+            <point key="canvasLocation" x="-867.27272727272737" y="-9.4142259414225951"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="84s-iz-MrP">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" primaryBackgroundStyle="sidebar" id="YQB-0H-Ucp" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="rOw-gR-tF1"/>
+                        <segue destination="Esk-cX-mnB" kind="relationship" relationship="masterViewController" id="QNc-GL-jkP"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rG-tP-j5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1637" y="370"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yab-r6-zG2"/>
+        <segue reference="lit-gB-ZZx"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
