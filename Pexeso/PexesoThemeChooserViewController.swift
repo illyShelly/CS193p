@@ -70,6 +70,7 @@ class PexesoThemeChooserViewController: UIViewController, UISplitViewControllerD
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
                 if let pexesoVC = segue.destination as? PexesoViewController {
                     pexesoVC.theme = theme
+                    print("prepareForSegue: setting theme = \(themeName)")
 //                    lastSeguedToPexesoViewController = pexesoVC
                 }
             }

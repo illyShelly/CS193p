@@ -44,6 +44,7 @@ class PexesoViewController: UIViewController {
     var theme: String? {
         didSet {
             emojiChoices = theme ?? "" // starts as nil
+            print("Theme set: \(emojiChoices)")
             emojiDictionary = [:]
             updateViewFromModel()
         }
