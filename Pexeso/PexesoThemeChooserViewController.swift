@@ -9,25 +9,26 @@ import UIKit
 
 class PexesoThemeChooserViewController: UIViewController, UISplitViewControllerDelegate {
     
-    // Needs to add UISplitViewControllerDelegate
-//    override func awakeFromNib() {
-//        splitViewController?.delegate = self
-//    }
+    // Needs to confirm UISplitViewControllerDelegate protocol ****
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+    }
     
-    // without this func iPhone will enter game screen directly
-//    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-//        if let pexesoVC = secondaryViewController as? PexesoViewController {
-//            if pexesoVC.theme == nil {  // not chose yet
-//                return true // show the theme screen default in iPhone
-//            }
-//        }
-//        return false  // after chosen, enter the game screen in iPhone
-//    }
+    // without this method iPhone enters "default halloween" game view directly (on this splitVC)
+    func splitViewController(_ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController) -> Bool {
+        if let pexesoVC = secondaryViewController as? PexesoViewController {
+            if pexesoVC.theme == nil {  // not chosen yet
+                return true // did the collapse and show the "theme view" as a default view on the iPhone
+            }
+        }
+        return false  // after chosen, enter the detail game view
+    }
 
 //    Skip default 'haloween theme' when starting the game/app it will show directly themes to choose from as the initial screen
 //    PexesoThemeChooserVC make itself delegate of the splitViewController that it's in (even not show it on iPhone)
 //    On iPad still appears after click on theme the 'sidebar' with game - we control the collaps with the detail
-    
     
     var themes = [
         "Sports": "⚽️🏀🏈⚾️🎾🏐🏉🥏🎱🏓⛷️🏏⛳️",
@@ -36,37 +37,41 @@ class PexesoThemeChooserViewController: UIViewController, UISplitViewControllerD
     ]
     
     // Use 'target action' to make segues instead of manually in Storyboard
-    // Generic segue from PexesoThemeChooser VC to PexesoVC, not from each buttons anymore
+    // Generic "segue" from PexesoThemeChooser VC to PexesoVC, not from each buttons (UI) anymore
     // And drag Control from MVC - yellow button on top and choose Show Detail (for iPad splitView)
     
     @IBAction func changeTheme(_ sender: Any) {
         // For iPad
-        //    Change the theme, not start a new game when choosing a theme
+        //    Change the theme, not start a new game when choosing a different theme in the middle of the game
         //    then I do not segue, because segue always creates a new MVC, remember the state
         if let pvc = splitViewDetailPexesoViewController { // my var
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
                 pvc.theme = theme
             }
-            //    for iPhone - push it to the navigation Stack from the heap
+        // for iPhone - push it to the navigation Stack from the heap (if found the detail VC - PexesoVC)
         } else if let pvc = lastSeguedToPexesoViewController {
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName] {
                 pvc.theme = theme
-            } // push it back without segueing
+            } // and push it back without segueing
             navigationController?.pushViewController(pvc, animated: true)
         } else {
-            performSegue(withIdentifier: "Choose Theme", sender: sender)        // use segue from code
+            performSegue(withIdentifier: "Choose Theme", sender: sender) // use segue from code (first time create a new game)
         }
     }
-
+    
+    // on iPad - is splitView controller
     private var splitViewDetailPexesoViewController: PexesoViewController? {    // return current splitVC if I am in any?
         return splitViewController?.viewControllers.last as? PexesoViewController
         // in its VCs which is a master in array, and has a detail VC (just iPad not iPhone solution)
     }
-   
+    
+    // on iPhone - is navigation controller
+    // *** normal var keeping in the heap even though we hit "back" button "on iPhone" and throw off the NavStack
+    private var lastSeguedToPexesoViewController: PexesoViewController?
+    
     // MARK: - Navigation
     
-        // *** normal var keeping in the heap even though when hit "back" button "on iPhone" and throw off the NavStack
-    private var lastSeguedToPexesoViewController: PexesoViewController?
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Choose Theme" {
@@ -97,3 +102,13 @@ class PexesoThemeChooserViewController: UIViewController, UISplitViewControllerD
 // ***
 // as we want to hit 'back' button to choose different theme on iPhone (doesn't have splitVC), it throws away MVC from Navigation Stack but pointing to this var
 // Grab a hold the MVC we segue to and hold with strong pointer, when it gets thrown off of navigation stack doesn't leave a heap. Next time, put it straight into Nav controller (not segue as a new) and push it right out there.
+
+
+// ****
+// we want on the iPhone to show "Themes first" and not default detail with the "halloween" game
+// the split view is still there, however not visible on iPhone, so we change PexesoThemeChooserVC the become "delegate"
+// of the splitVC it's in, using one of the method that "controls the collapse" of secondary VC (here detail) on the primary VC
+//
+
+
+
