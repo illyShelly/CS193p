@@ -29,7 +29,7 @@
                                             <color key="titleColor" systemColor="systemMintColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="sgd-mo-2aD"/>
+                                            <action selector="changeTheme:" destination="gNz-wZ-cCY" eventType="touchUpInside" id="aCx-Sz-UYU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-0P-Dvy">
@@ -40,7 +40,7 @@
                                             <color key="titleColor" systemColor="systemMintColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="cen-MJ-LII"/>
+                                            <action selector="changeTheme:" destination="gNz-wZ-cCY" eventType="touchUpInside" id="9Uj-gf-aVG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSZ-cN-0lh">
@@ -51,7 +51,7 @@
                                             <color key="titleColor" systemColor="systemMintColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="lit-gB-ZZx"/>
+                                            <action selector="changeTheme:" destination="gNz-wZ-cCY" eventType="touchUpInside" id="6dG-qx-a3c"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,6 +65,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b4y-PY-B1X"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="dGL-FD-ZHn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w18-eq-39J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,9 +115,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Zqy-z7-xld" kind="relationship" relationship="viewControllers" id="Xwv-gQ-Pgn"/>
-                        <segue destination="RJA-FI-kdZ" kind="relationship" relationship="viewControllers" id="ska-LB-lt6"/>
                         <segue destination="YQB-0H-Ucp" kind="relationship" relationship="viewControllers" id="dl1-aK-kZ7"/>
+                        <segue destination="RJA-FI-kdZ" kind="relationship" relationship="viewControllers" id="MO8-7C-Xec"/>
+                        <segue destination="Zqy-z7-xld" kind="relationship" relationship="viewControllers" id="nAc-wj-MVh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSE-nv-FGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -126,17 +129,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PexesoViewController" customModule="Pexeso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1032" height="1376"/>
+                        <rect key="frame" x="0.0" y="0.0" width="580" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vBV-sQ-gt5">
-                                <rect key="frame" x="16" y="144.5" width="1000" height="1137.5"/>
+                                <rect key="frame" x="16" y="16" width="548" height="550"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iEu-o2-lbo">
-                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="278.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="548" height="131.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfO-DH-WZf">
-                                                <rect key="frame" x="0.0" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -145,7 +148,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YL-bC-0L0">
-                                                <rect key="frame" x="252" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="139" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -154,7 +157,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DZ-CZ-PT2">
-                                                <rect key="frame" x="504" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="278" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -163,7 +166,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZV-zZ-AQ1">
-                                                <rect key="frame" x="756" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="417" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -174,10 +177,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DZT-s7-fc7">
-                                        <rect key="frame" x="0.0" y="286.5" width="1000" height="278.5"/>
+                                        <rect key="frame" x="0.0" y="139.5" width="548" height="131.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDz-DV-wCk">
-                                                <rect key="frame" x="0.0" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -186,7 +189,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WG-Ks-KWR">
-                                                <rect key="frame" x="252" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="139" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -195,7 +198,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9v-S3-4Sb">
-                                                <rect key="frame" x="504" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="278" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -204,7 +207,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-hI-ILf">
-                                                <rect key="frame" x="756" y="0.0" width="244" height="278.5"/>
+                                                <rect key="frame" x="417" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -215,10 +218,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-kj-GuB">
-                                        <rect key="frame" x="0.0" y="573" width="1000" height="278"/>
+                                        <rect key="frame" x="0.0" y="279" width="548" height="131.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7X-c2-QCh">
-                                                <rect key="frame" x="0.0" y="0.0" width="244" height="278"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -227,7 +230,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwh-D7-mQl">
-                                                <rect key="frame" x="252" y="0.0" width="244" height="278"/>
+                                                <rect key="frame" x="139" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -236,7 +239,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiD-t4-8mv">
-                                                <rect key="frame" x="504" y="0.0" width="244" height="278"/>
+                                                <rect key="frame" x="278" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -245,7 +248,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-Fp-xNR">
-                                                <rect key="frame" x="756" y="0.0" width="244" height="278"/>
+                                                <rect key="frame" x="417" y="0.0" width="131" height="131.5"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -256,10 +259,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wpM-Dq-bZR">
-                                        <rect key="frame" x="0.0" y="859" width="1000" height="278.5"/>
+                                        <rect key="frame" x="0.0" y="418.5" width="548" height="131.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h17-dI-kVF">
-                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="278.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="548" height="131.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Reset"/>
@@ -272,7 +275,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt4-2M-nPV">
-                                <rect key="frame" x="455" y="1290" width="122.5" height="48"/>
+                                <rect key="frame" x="229" y="574" width="122.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
@@ -344,7 +347,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rOw-gR-tF1"/>
+        <segue reference="dGL-FD-ZHn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
